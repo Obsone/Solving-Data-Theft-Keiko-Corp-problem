@@ -1,0 +1,25 @@
+-- 1. Movr_Employees: This database contains all relevant information about the Employees of Keiko Corp.
+-- 
+-- Note: this database is slightly different than the Employees database you've been using throughout the course. You will see me reference the "Employees" database in the solution videos, however, this is an altered version of the data for the purpose of solving the mystery!
+-- 
+-- 2. Movr: A ride-sharing product that Keiko offers to consumers.
+-- 
+-- 
+-- You can find the files for the Movr and Movr_Employees database in the resources section.
+--
+-- To restore the Movr backup make sure to do the following steps in order!
+-- 
+-- 1. Create a database named Movr
+-- 
+-- 2. Restore the schema.sql first to the Movr database
+-- 
+-- 3. Restore the data.sql next
+-- 
+-- To restore the Movr_Employees backup make sure to do the following steps in order!
+-- 
+-- 1. Create a database named Movr_Employees
+-- 
+-- 2. Restore the movr_employees.sql
+
+
+--  section 8: Solving the Mystery: Files are available their.
