@@ -44,3 +44,24 @@ FROM suspected_rides AS sr
 JOIN rides AS r ON r.id = sr.ride_id
 JOIN users AS u ON u.id = r.rider_id;
 --it's not the riders
+
+CREATE VIEW suspect_rider_names AS
+    SELECT DISTINCT
+        split_part(u.name, ' ', 1) AS "first_name",
+        split_part( u.name, ' ', 2) AS "last_name"
+    FROM suspected_rides AS vlh
+    JOIN rides AS r ON r.id = vlh.ride_id
+    JOIN users AS u ON u.id = r.rider_id;
+
+SELECT * FROM suspect_rider_names;
+
+SELECT DISTINCT
+    concat(t1.first_name, ' ', t1.last_name) AS "employee",
+    concat(u.first_name, ' ', u.last_name) AS "rider"
+FROM
+    dblink('host=localhost user=postgres password=root dbname=movr_employees', 'SELECT first_name, last_name FROM employees;') 
+        AS t1(first_name NAME, last_name NAME)
+JOIN suspect_rider_names AS u ON t1.last_name = u.last_name
+ORDER BY "rider";
+--11 employee suspects, 3 riders related
+--Parke Morrise
